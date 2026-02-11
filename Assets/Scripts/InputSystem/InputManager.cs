@@ -8,7 +8,8 @@ public class InputManager : MonoBehaviour, Input.IPlayerActions
 
     public void OnLook(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        Debug.Log($"Move phase: {context.phase} | Value: {context.ReadValue<Vector2>()}");
+        if (context.started)
         {
             LookInputEvent?.Invoke(context.ReadValue<Vector2>());
         }
@@ -16,7 +17,8 @@ public class InputManager : MonoBehaviour, Input.IPlayerActions
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        Debug.Log($"Move phase: {context.phase} | Value: {context.ReadValue<Vector2>()}");
+        if (context.started)
         {
             MoveInputEvent?.Invoke(context.ReadValue<Vector2>());
         }
