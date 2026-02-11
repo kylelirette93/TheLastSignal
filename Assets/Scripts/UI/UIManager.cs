@@ -25,6 +25,12 @@ public class UIManager : Singleton<UIManager>
         if (menuPanel != null) menuPanel.SetActive(true);
     }
 
+    public void ShowGameplay()
+    {
+        DisableAllUI();
+        if (gameplayPanel != null) gameplayPanel.SetActive(true);
+    }
+
     public void ShowPause()
     {
         DisableAllUI();

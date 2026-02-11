@@ -9,6 +9,7 @@ public class GameStateManager : Singleton<GameStateManager>
     private State currentState;
 
     private GameState_MainMenu gameState_MainMenu = new GameState_MainMenu();
+    private GameState_Gameplay gameState_Gameplay = new GameState_Gameplay();
 
     private void Start()
     {
@@ -28,5 +29,10 @@ public class GameStateManager : Singleton<GameStateManager>
         lastActiveState = currentActiveState;
         currentState = newState;
         newState.EnterState();
+    }
+
+    public void PlayGame()
+    {
+        SwitchState(gameState_Gameplay);
     }
 }

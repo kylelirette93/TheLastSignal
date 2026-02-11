@@ -59,6 +59,8 @@ public class PlayerController : MonoBehaviour
 
     private void HandleMovement()
     {
+        if (movementInput == Vector2.zero) return;
+
         Vector3 moveDirection = new Vector3(movementInput.x, 0, movementInput.y);
         moveDirection = transform.TransformDirection(moveDirection);
         transform.position += moveDirection * movementSpeed * Time.deltaTime;
