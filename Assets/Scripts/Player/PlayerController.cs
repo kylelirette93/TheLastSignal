@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -16,7 +17,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] bool moveEnabled = true;
     [SerializeField] private float lookSensitivityX = 2f;
     [SerializeField] private float lookSensitivityY = 2f;
+    [SerializeField] private float lookSmoothTime = 0.05f;
     private Vector2 lookInput;
+    private Vector2 currentLook;
+    private Vector2 lookVelocity;
+    private float yaw;
+    private float pitch;
+
+    private Rigidbody rb;
 
     private void Start()
     {
@@ -38,6 +46,22 @@ public class PlayerController : MonoBehaviour
             }
         }
         #endregion
+
+        #region References
+        if (rb == null)
+        {
+            rb = GetComponent<Rigidbody>();
+            if (rb == null)
+            {
+                Debug.LogError("Rigidbody component not found on PlayerController.");
+            }
+        }
+        #endregion
+        if (Gamepad.current != null)
+        {
+            lookSensitivityX *= 10f;
+            lookSensitivityY *= 10f;
+        }
     }
 
     private void OnMoveInput(Vector2 input)
@@ -52,18 +76,17 @@ public class PlayerController : MonoBehaviour
         lookInput = input;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         HandleMovement();
     }
 
     private void HandleMovement()
     {
-        if (movementInput == Vector2.zero) return;
-
         Vector3 moveDirection = new Vector3(movementInput.x, 0, movementInput.y);
         moveDirection = transform.TransformDirection(moveDirection);
-        transform.position += moveDirection * movementSpeed * Time.deltaTime;
+        rb.MovePosition(rb.position + moveDirection * movementSpeed * Time.fixedDeltaTime);
+        //transform.position += moveDirection * movementSpeed * Time.deltaTime;
     }
 
     private void LateUpdate()
@@ -73,15 +96,18 @@ public class PlayerController : MonoBehaviour
 
     private void HandleLook()
     {
-        float horizontalLook = lookInput.x * lookSensitivityX * Time.deltaTime;
-        float verticalLook = lookInput.y * lookSensitivityY * Time.deltaTime;
+        currentLook = Vector2.SmoothDamp(
+        currentLook,
+        lookInput,
+        ref lookVelocity,
+        lookSmoothTime
+    );
+        yaw += currentLook.x * lookSensitivityX * Time.deltaTime;
+        pitch -= currentLook.y * lookSensitivityY * Time.deltaTime;
 
-        transform.Rotate(Vector3.up * horizontalLook);
-        Vector3 angles = cameraHolder.localEulerAngles;
-        float newRotX = angles.x - verticalLook;
-        newRotX = (newRotX > 180) ? newRotX - 360 : newRotX;
-        newRotX = Mathf.Clamp(newRotX, -60f, 60f);
+        pitch = Mathf.Clamp(pitch, -60f, 60f);
 
-        cameraHolder.localEulerAngles = new Vector3(newRotX, 0f, 0f);
+        transform.rotation = Quaternion.Euler(0f, yaw, 0f);
+        cameraHolder.localEulerAngles = new Vector3(pitch, 0f, 0f);
     }
 }
