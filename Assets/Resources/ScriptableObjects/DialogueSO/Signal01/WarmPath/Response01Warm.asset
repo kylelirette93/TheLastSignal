@@ -12,10 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c379ac31231dab84ba627f406a4acb01, type: 3}
   m_Name: Response01Warm
   m_EditorClassIdentifier: 
-  choices:
-  - {fileID: 11400000, guid: 25f773695fde7ac4397e46274ca3f67c, type: 2}
-  - {fileID: 11400000, guid: f9219cdd2d8430842972a552eb6b9161, type: 2}
-  - {fileID: 11400000, guid: a566255e78711384bb6a8f0e1d7acbfb, type: 2}
+  choices: []
   optionName: 
-  dialogueText: Ok... I pulled the lever. The door locked. Now what do I do?
+  dialogueText: 'Elias: You''re right, I''m climbing now. I can hear the office glass
+    shattering behind me... I''m out but I''ve lost everything...'
   nextDialogue: {fileID: 0}

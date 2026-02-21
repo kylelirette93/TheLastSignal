@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   choices: []
   optionName: Save Yourself [Warm]
-  dialogueText: Save yourself. We'll find another way to get your family out.
+  dialogueText: Forget the levers, Elias! Get to the ladder now. Your life is worth
+    more than this station.
   nextDialogue: {fileID: 11400000, guid: 161eb571e09f8c2409619dd1a3abc91b, type: 2}

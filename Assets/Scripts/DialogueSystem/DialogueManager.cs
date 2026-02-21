@@ -56,7 +56,12 @@ public class DialogueManager : MonoBehaviour
                 textToShow.Append(text[i]);
                 dialogueText.text = textToShow.ToString();
 
-                yield return new WaitForSeconds(1f / 20f);
+                if (!char.IsWhiteSpace(text[i]))
+                {
+                    SoundSO typewriterSound = AudioLibrary.Instance.GetSound("typewriter");
+                    AudioManager.Instance.PlaySoundFromRadio(typewriterSound);
+                }
+                yield return new WaitForSeconds(1f / 15f);
             }
             ShowChoices(dialogue);
         }

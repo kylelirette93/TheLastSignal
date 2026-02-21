@@ -17,5 +17,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7bc559a12d0f78447a133a1c0afca1c6, type: 2}
   - {fileID: 11400000, guid: 9bb8b5fe48a9aec4abf1e5d29e61c62c, type: 2}
   optionName: 
-  dialogueText: There's a red and blue level. I can only reach one before the intake
-    floods but the pump might start!
+  dialogueText: 'Elias: There''s a red and blue lever. I can only reach one before
+    the intake floods but the pump might start!'
+  nextDialogue: {fileID: 0}
