@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c379ac31231dab84ba627f406a4acb01, type: 3}
-  m_Name: YouFirstWhoAreYou
+  m_Name: CheckDoor
   m_EditorClassIdentifier: 
   choices: []
   optionName: Ask to check the door. [Sensible]

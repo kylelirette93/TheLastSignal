@@ -84,6 +84,7 @@ public class PlayerController : MonoBehaviour
     public void ToggleMovement(bool canMove)
     {
         moveEnabled = canMove;
+        lookEnabled = canMove;
     }
 
     private void HandleMovement()

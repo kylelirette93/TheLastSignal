@@ -74,11 +74,25 @@ public class DialogueManager : MonoBehaviour
                 newButton.GetComponent<Button>().onClick.AddListener(() => BeginDialogue(choice));
             }
         }
-        else
+        else if (dialogue.nextDialogue != null)
         {
             GameObject nextButton = Instantiate(buttonPrefab, buttonsParent);
             nextButton.GetComponentInChildren<TextMeshProUGUI>().text = "Next";
             nextButton.GetComponent<Button>().onClick.AddListener(() => BeginDialogue(dialogue.nextDialogue));
         }
+        else
+        {
+            GameObject exitButton = Instantiate(buttonPrefab, buttonsParent);
+            exitButton.GetComponentInChildren<TextMeshProUGUI>().text = "End Signal";
+            exitButton.GetComponent<Button>().onClick.AddListener(() => EndConversation());
+        }
+    }
+
+    private void EndConversation()
+    {
+        dialoguePanel.SetActive(false);
+        playerController.ToggleMovement(true);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }
