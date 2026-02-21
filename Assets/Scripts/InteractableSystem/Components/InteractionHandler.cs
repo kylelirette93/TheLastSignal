@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class InteractionHandler : MonoBehaviour
 {
@@ -18,18 +16,13 @@ public class InteractionHandler : MonoBehaviour
         if (inputManager == null)
         {
             inputManager = GetComponentInChildren<InputManager>();
-            Input input = new Input();
-            input.Player.Enable();
-            input.Player.SetCallbacks(inputManager);
-            if (inputManager != null)
+            if (inputManager == null)
             {
-                inputManager.InteractEvent += OnInteract;
-            }
-            else
-            {
-                Debug.LogError("Input Manager not found in children.");
+                Debug.LogError("InputManager not found in children.");
+                return;
             }
         }
+        inputManager.InteractEvent += OnInteract;
         #endregion
     }
     private void Update()
@@ -38,11 +31,14 @@ public class InteractionHandler : MonoBehaviour
         UpdateFocus(nearest);
     }
 
-    private void OnInteract()
+    private void OnInteract(InputAction.CallbackContext context)
     {
-        if (focused != null)
+        if (context.performed)
         {
-            if (focused.CanInteract()) focused.Interact();
+            if (focused != null)
+            {
+                if (focused.CanInteract()) focused.Interact();
+            }
         }
     }
 

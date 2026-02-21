@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c379ac31231dab84ba627f406a4acb01, type: 3}
+  m_Name: Choice02Cold
+  m_EditorClassIdentifier: 
+  choices: []
+  optionName: 
+  dialogueText: 
+  nextDialogue: {fileID: 11400000, guid: 0dd76b0cdf3a5bb4685b53631e35b630, type: 2}

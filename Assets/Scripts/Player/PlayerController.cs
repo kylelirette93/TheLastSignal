@@ -81,6 +81,11 @@ public class PlayerController : MonoBehaviour
         HandleMovement();
     }
 
+    public void ToggleMovement(bool canMove)
+    {
+        moveEnabled = canMove;
+    }
+
     private void HandleMovement()
     {
         Vector3 moveDirection = new Vector3(movementInput.x, 0, movementInput.y);

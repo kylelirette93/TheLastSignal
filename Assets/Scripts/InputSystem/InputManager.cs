@@ -5,7 +5,7 @@ public class InputManager : MonoBehaviour, Input.IPlayerActions
 {
     public event Action<Vector2> MoveInputEvent;
     public event Action<Vector2> LookInputEvent;
-    public event Action InteractEvent;
+    public event Action<InputAction.CallbackContext> InteractEvent;
 
     public void OnLook(InputAction.CallbackContext context)
     {
@@ -19,6 +19,6 @@ public class InputManager : MonoBehaviour, Input.IPlayerActions
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        InteractEvent?.Invoke();
+        InteractEvent?.Invoke(context);
     }
 }
