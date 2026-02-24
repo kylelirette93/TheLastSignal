@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Text;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
@@ -13,6 +14,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject buttonPrefab;
     [SerializeField] private Transform buttonsParent;
     [SerializeField] private PlayerController playerController;
+    [SerializeField] private UnityEvent dialogueStartedEvent;
+    [SerializeField] private UnityEvent dialogueEndedEvent;
 
     public void BeginDialogue(Dialogue dialogue)
     {
@@ -32,6 +35,7 @@ public class DialogueManager : MonoBehaviour
         Cursor.visible = true;
 
         dialoguePanel.SetActive(true);
+        dialogueStartedEvent.Invoke();
 
         ClearChoices();
         AnimateText(dialogue);
@@ -96,6 +100,7 @@ public class DialogueManager : MonoBehaviour
     private void EndConversation()
     {
         dialoguePanel.SetActive(false);
+        dialogueEndedEvent.Invoke();
         playerController.ToggleMovement(true);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;

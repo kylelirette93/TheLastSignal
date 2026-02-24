@@ -53,22 +53,26 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ScanlineStrength: 2.7
-    - _StaticStrength: 0.24
+    - _Stability: 0.2
+    - _StaticStrength: 0
     - _Station1: 0.2
     - _Station2: 0.5
     - _Station3: 0.8
     - _StationWidth: 0.05
     - _Tune: 1
-    - _noise_amp: 4.5
-    - _noise_scale: 0
-    - _speed: 0.27
-    - _waves: 3.3
-    - _waves_amp: 0.24
+    - _TuneValue: 0
+    - _noise_amp: 1.6
+    - _noise_scale: 24.2
+    - _speed: 0.78
+    - _waves: 5.2
+    - _waves_amp: 0.27
     m_Colors:
+    - _BackgroundColor: {r: 0, g: 0.5188679, b: 0.036200102, a: 0}
     - _GreenTint: {r: 0.0048570633, g: 1, b: 0, a: 0}
+    - _ScreenColor: {r: 0.033018887, g: 1, b: 0.11360057, a: 0}
     - _SignalColor: {r: 0.06568072, g: 1, b: 0, a: 0}
     - _StaticTint: {r: 0.23584908, g: 0.23584908, b: 0.23584908, a: 0}
-    - _color: {r: 0.070359446, g: 1, b: 0, a: 0}
+    - _color: {r: 0.07035942, g: 1, b: 0, a: 0.7529412}
   m_BuildTextureStacks: []
 --- !u!114 &1083151637842951076
 MonoBehaviour:
