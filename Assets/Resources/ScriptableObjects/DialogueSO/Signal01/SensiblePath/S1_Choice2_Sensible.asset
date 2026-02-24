@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c379ac31231dab84ba627f406a4acb01, type: 3}
-  m_Name: S1_Start
+  m_Name: S1_Choice2_Sensible
   m_EditorClassIdentifier: 
   choices: []
-  optionName: 
-  dialogueText: Hello? Can anyone hear me?
-  nextDialogue: {fileID: 11400000, guid: 2f53d26d31e84ab4aa47704a5bff618b, type: 2}
-  choice: 0
+  optionName: Can you move?
+  dialogueText: Ok focus. Can you move at all? Let's figure out what's safe to do.
+  nextDialogue: {fileID: 11400000, guid: 4f63cb88d15b4424f8e1a89c074cbba5, type: 2}
+  choice: 2

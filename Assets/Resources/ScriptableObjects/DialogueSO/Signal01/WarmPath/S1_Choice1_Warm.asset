@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c379ac31231dab84ba627f406a4acb01, type: 3}
-  m_Name: S1_Start
+  m_Name: S1_Choice1_Warm
   m_EditorClassIdentifier: 
   choices: []
-  optionName: 
-  dialogueText: Hello? Can anyone hear me?
-  nextDialogue: {fileID: 11400000, guid: 2f53d26d31e84ab4aa47704a5bff618b, type: 2}
-  choice: 0
+  optionName: I'm here.
+  dialogueText: You're not alone. I'm here with you. Breathe...
+  nextDialogue: {fileID: 11400000, guid: 161eb571e09f8c2409619dd1a3abc91b, type: 2}
+  choice: 1

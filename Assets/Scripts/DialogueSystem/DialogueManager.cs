@@ -16,6 +16,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private PlayerController playerController;
     [SerializeField] private UnityEvent dialogueStartedEvent;
     [SerializeField] private UnityEvent dialogueEndedEvent;
+    [SerializeField] private PlayerStats stats;
 
     public void BeginDialogue(Dialogue dialogue)
     {
@@ -29,6 +30,10 @@ public class DialogueManager : MonoBehaviour
 
             return;
         }*/
+
+        ChoiceType choice = dialogue.choice;
+
+        AdjustStatBasedOnDialogue(choice);
 
         playerController.ToggleMovement(false);
         Cursor.lockState = CursorLockMode.None;
@@ -65,7 +70,7 @@ public class DialogueManager : MonoBehaviour
                     SoundSO typewriterSound = AudioLibrary.Instance.GetSound("typewriter");
                     AudioManager.Instance.PlaySoundFromRadio(typewriterSound);
                 }
-                yield return new WaitForSeconds(1f / 15f);
+                yield return new WaitForSeconds(1f / 35f);
             }
             ShowChoices(dialogue);
         }
@@ -104,5 +109,27 @@ public class DialogueManager : MonoBehaviour
         playerController.ToggleMovement(true);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+    }
+
+    private void AdjustStatBasedOnDialogue(ChoiceType choice)
+    {
+        switch (choice)
+        {
+            case ChoiceType.Warm:
+                stats.ChangeEmpathy(5f);
+                stats.ChangeGuilt(2f);
+                stats.ChangeSanity(-3f);
+                break;
+            case ChoiceType.Sensible:
+                stats.ChangePragmatism(5f);
+                stats.ChangeEmpathy(-2f);
+                stats.ChangeSanity(3f);
+                break;
+            case ChoiceType.Cold:
+                stats.ChangeDetatchment(5f);
+                stats.ChangeGuilt(-3f);
+                stats.ChangeEmpathy(-2f);
+                break;
+        }
     }
 }

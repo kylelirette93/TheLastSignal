@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c379ac31231dab84ba627f406a4acb01, type: 3}
-  m_Name: S1_Start
+  m_Name: S1_Choice3_Cold
   m_EditorClassIdentifier: 
   choices: []
-  optionName: 
-  dialogueText: Hello? Can anyone hear me?
-  nextDialogue: {fileID: 11400000, guid: 2f53d26d31e84ab4aa47704a5bff618b, type: 2}
-  choice: 0
+  optionName: Try to stay alive.
+  dialogueText: I don't have the means to rescue you. Try to stay alive best you
+    can.
+  nextDialogue: {fileID: 11400000, guid: 5dd72474db092f245b7fe4c7181f2e5f, type: 2}
+  choice: 3

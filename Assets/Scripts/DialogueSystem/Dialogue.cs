@@ -10,6 +10,7 @@ public class Dialogue : ScriptableObject
     [SerializeField] string dialogueText;
 
     public Dialogue nextDialogue;
+    public ChoiceType choice;
 
     public string OptionName
     {
@@ -26,3 +27,4 @@ public class Dialogue : ScriptableObject
         get { return dialogueText; }
     }
 }
+public enum ChoiceType { None, Warm, Sensible, Cold }

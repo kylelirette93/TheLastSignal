@@ -10,14 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c379ac31231dab84ba627f406a4acb01, type: 3}
-  m_Name: S1_Next
+  m_Name: S1_Cold_Outcome
   m_EditorClassIdentifier: 
-  choices:
-  - {fileID: 11400000, guid: 9d2771eee8c2d6f488dfc15753cfe89a, type: 2}
-  - {fileID: 11400000, guid: 12c30a84d9b6d294da731102b7f72680, type: 2}
-  - {fileID: 11400000, guid: 2990c44ea5245cc40b64eba7bb53d033, type: 2}
+  choices: []
   optionName: 
-  dialogueText: 'Unknown: I... don''t think I''ll make it. The walls are closing
-    in... I''m trapped in the abandoned market. What do I do?'
+  dialogueText: The reciever goes silent. Did you do the right thing?
   nextDialogue: {fileID: 0}
   choice: 0
